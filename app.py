@@ -1,6 +1,6 @@
 import streamlit as st
 from datetime import datetime
-
+from stockInfo import stockAnalyzer
 st.set_page_config(
     page_title="Financial Insights",
     page_icon="💰",  
@@ -18,7 +18,7 @@ if Enter:
     else:
         try:
             with st.spinner('Processing... ⌛'):
-                result = f"Stock Analysis Logic for {query}"
+                result = stockAnalyzer(query)
             st.success('Analysis done!💰')
             st.write(result)
         except Exception as e:
